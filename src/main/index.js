@@ -30,17 +30,6 @@ if (process.env.NODE_ENV === 'development') {
     .replace(/\\/g, '\\\\') // eslint-disable-line
 }
 
-function installDevTools() {
-  try {
-    require('devtron').install() //eslint-disable-line
-    require('vue-devtools').install() //eslint-disable-line
-  } catch (err) {
-    console.log(
-      'Failed to install `devtron` & `vue-devtools`: Please set `NODE_ENV=production` before build to avoid installing debugging packages. ',
-    )
-  }
-}
-
 function createWindow() {
   /**
    * Initial window options
@@ -82,10 +71,6 @@ function createWindow() {
 
 app.on('ready', () => {
   createWindow()
-
-  if (process.env.NODE_ENV === 'development') {
-    installDevTools()
-  }
 })
 
 app.on('window-all-closed', () => {

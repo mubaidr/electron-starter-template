@@ -7,7 +7,7 @@
     <% if (htmlWebpackPlugin.options.nodeModules) { %>
     <script>
       require('module').globalPaths.push(
-        `<%= htmlWebpackPlugin.options.nodeModules.replace(/\\/g, '\\\\') %>`,
+        `<%= htmlWebpackPlugin.options.nodeModules.replace(/\\/g, '\\\\') %>`
       )
     </script>
     <% } %>
