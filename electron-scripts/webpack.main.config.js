@@ -1,12 +1,14 @@
+process.env.NODE_ENV = process.env.NODE_ENV || 'production'
+
 const path = require('path')
 const { dependencies } = require('../package.json')
 
 const mainConfig = {
-  mode: process.env.NODE_ENV || 'production',
+  mode: process.env.NODE_ENV,
   entry: {
     main: path.join(__dirname, '../src/main/index.js'),
   },
-  externals: [...Object.keys(dependencies || {})],
+  externals: [...Object.keys(dependencies)],
   module: {
     rules: [
       {

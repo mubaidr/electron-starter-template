@@ -1,3 +1,5 @@
+process.env.NODE_ENV = process.env.NODE_ENV || 'production'
+
 const path = require('path')
 
 /* eslint-disable*/
@@ -28,19 +30,19 @@ const rendererConfig = {
     rules: [
       {
         test: /\.scss$/,
-        use: ['css-loader', 'sass-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.sass$/,
-        use: ['css-loader', 'sass-loader?indentedSyntax'],
+        use: ['style-loader', 'css-loader', 'sass-loader?indentedSyntax'],
       },
       {
         test: /\.less$/,
-        use: ['css-loader', 'less-loader'],
+        use: ['style-loader', 'css-loader', 'less-loader'],
       },
       {
         test: /\.css$/,
-        use: ['css-loader'],
+        use: ['style-loader', 'css-loader'],
       },
       {
         enforce: 'pre',
@@ -119,7 +121,7 @@ const rendererConfig = {
 /**
  * Adjust rendererConfig for production settings
  */
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV !== 'development') {
   rendererConfig.plugins.push(
     new CopyWebpackPlugin([
       {
