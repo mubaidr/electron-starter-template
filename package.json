@@ -54,9 +54,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "copy-webpack-plugin": "^4.6.0",
-    "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
-    "del": "^3.0.0",
     "devtron": "^1.4.0",
     "electron": "~4.0.0",
     "electron-builder": "^20.38.4",
@@ -91,10 +89,9 @@
     "url": "git+https://github.com/mubaidr/electron-starter-template.git"
   },
   "scripts": {
-    "build": "cross-env NODE_ENV=production npm run pack && electron-builder",
+    "build": "npm run pack && electron-builder",
     "build:dir": "npm run pack && electron-builder --dir",
-    "clean": "cross-env BUILD_TARGET=clean node electron-scripts/build.js",
-    "dev": "cross-env NODE_ENV=development node electron-scripts/dev-runner.js",
+    "dev": "node electron-scripts/dev-runner.js",
     "lint": "eslint --ext .js,.vue --fix src",
     "pack": "npm run pack:main && npm run pack:renderer",
     "pack:main": "webpack --mode production --hide-modules --config electron-scripts/webpack.main.config.js",

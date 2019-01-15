@@ -1,5 +1,3 @@
-process.env.BABEL_ENV = 'renderer'
-
 const path = require('path')
 
 /* eslint-disable*/
@@ -17,13 +15,13 @@ const { dependencies } = require('../package.json')
 const whiteListedModules = []
 
 const rendererConfig = {
-  mode: process.env.NODE_ENV,
+  mode: process.env.NODE_ENV || 'production',
   entry: {
     renderer: path.join(__dirname, '../src/renderer/index.js'),
   },
   externals: [
     ...Object.keys(dependencies || {}).filter(
-      d => !whiteListedModules.includes(d),
+      d => !whiteListedModules.includes(d)
     ),
   ],
   module: {
@@ -96,7 +94,7 @@ const rendererConfig = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.resolve( __dirname, '../src/renderer/index.ejs'),
+      template: path.resolve(__dirname, '../src/renderer/index.ejs'),
       nodeModules:
         process.env.NODE_ENV !== 'production'
           ? path.resolve(__dirname, '../node_modules')
@@ -128,7 +126,7 @@ if (process.env.NODE_ENV === 'production') {
         from: path.join(__dirname, '../static'),
         to: path.join(__dirname, '../dist/electron/static'),
       },
-    ]),
+    ])
   )
 }
 

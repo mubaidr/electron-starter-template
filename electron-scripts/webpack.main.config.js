@@ -1,10 +1,8 @@
-process.env.BABEL_ENV = 'main'
-
 const path = require('path')
 const { dependencies } = require('../package.json')
 
 const mainConfig = {
-  mode: process.env.NODE_ENV,
+  mode: process.env.NODE_ENV || 'production',
   entry: {
     main: path.join(__dirname, '../src/main/index.js'),
   },
