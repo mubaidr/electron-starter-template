@@ -65,7 +65,7 @@
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.20.2",
     "file-loader": "^6.0.0",
-    "html-webpack-plugin": "^4.3.0",
+    "html-webpack-plugin": "^4.4.1",
     "inject-loader": "^4.0.1",
     "less": "^3.11.1",
     "less-loader": "^6.1.0",
